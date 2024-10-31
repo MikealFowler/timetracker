@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
@@ -15,5 +16,8 @@
     "jsonwebtoken": "^9.0.2",
     "moment-timezone": "^0.5.46",
     "webpack": "^5.95.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
   }
 }
