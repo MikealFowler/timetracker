@@ -17,36 +17,54 @@ console.log("Fort Nelson: " + fortNelson.format());
 
 //Starting time
 function updateTime() {
-   let currentTimeElement = document.getElementById('currentTimezone');
-    const now = new Date();
-    currentTimeElement.textContent = "Halifax " + now.toLocaleTimeString();
+    let newTimeElement = document.getElementById('timezoneSelect').value;
+    let currentTimeElement = document.getElementById('currentTimezone');
+    if (newTimeElement === "Halifax") {
+        let halifax = moment.tz("America/Halifax");
+        currentTimeElement.textContent = "Halifax " + halifax.format("HH:mm:ss");
+    } else if (newTimeElement === "Toronto") {
+        let toronto = moment.tz("America/Toronto");
+        currentTimeElement.textContent = "Toronto " + toronto.format("HH:mm:ss");
+    } else if (newTimeElement === "Winnipeg") {
+        let winnipeg = moment.tz('America/Winnipeg');
+        currentTimeElement.textContent = "Winnipeg " + winnipeg.format("HH:mm:ss");
+    } else if (newTimeElement === "Edmonton") {
+        let edmonton = moment.tz("America/Edmonton");
+        currentTimeElement.textContent = "Edmonton " + edmonton.format("HH:mm:ss");
+    } else if (newTimeElement === "Fort Nelson") {
+        let fortNelson = moment.tz('America/Fort_Nelson');
+        currentTimeElement.textContent = "Fort Nelson " + fortNelson.format("HH:mm:ss");
+    }
 }
 
-//How I Change the time zone
 
+//run each command and update every second
+setInterval(updateTime, 1000);
+
+//How I Change the time zone
 function changeTime() {
-    const newTimeElement = document.getElementById('timezoneSelect');
-     currentTimeElement = document.getElementById('currentTimezone');
+    const newTimeElement = document.getElementById('timezoneSelect').value;
+    currentTimeElement = document.getElementById('currentTimezone');
     if (newTimeElement === "Halifax") {
-        currentTimeElement.textContent = "Halifax " + halifax;
+        let halifax = moment.tz("America/Halifax");
+        currentTimeElement.textContent = "Halifax " + halifax.format("HH:mm:ss");
     } else if (newTimeElement === "Toronto") {
-        "Toronto " + toronto;
-        currentTimeElement.textContent = "Toronto " + toronto;
+        let toronto = moment.tz("America/Toronto");
+        currentTimeElement.textContent = "Toronto " + toronto.format("HH:mm:ss");
     } else if (newTimeElement === "Winnipeg") {
-        "Winnipeg " + winnipeg;
-        currentTimeElement.textContent = "Winnipeg " + winnipeg;
+        let winnipeg = moment.tz('America/Winnipeg');
+        currentTimeElement.textContent = "Winnipeg " + winnipeg.format("HH:mm:ss");
     } else if (newTimeElement === "Edmonton") {
-        "Edmonton " + edmonton;
-        currentTimeElement.textContent = "Edmonton " + edmonton;
+        let edmonton = moment.tz("America/Edmonton");
+        currentTimeElement.textContent = "Edmonton " + edmonton.format("HH:mm:ss");
     } else if (newTimeElement === "Fort Nelson") {
-        "Fort Nelson " + fortNelson;
-        currentTimeElement.textContent = "Fort Nelson " + fortNelson;
+        let fortNelson = moment.tz('America/Fort_Nelson');
+        currentTimeElement.textContent = "Fort Nelson " + fortNelson.format("HH:mm:ss");
     }
 
 }
 
-//run each command and update every second
-setInterval(updateTime, 1000);
-updateTime();
+// Attach changeTime to the global window object
+window.changeTime = changeTime;
 
 

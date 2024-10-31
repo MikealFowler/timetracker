@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script src="/dist/bundle.js"></script>
 </head>
 <body>
     <div id="currentTimezone" class="displayTimeBox">Loading time...</div> 
     <div>
-        <select id="timezoneSelect" onchange="changeTime()"> 
+        <select id="timezoneSelect" onchange=changeTime()> 
             <option id="halifax">Halifax</option>
             <option id="toronto">Toronto</option>
             <option id="winnipeg">Winnipeg</option>
@@ -17,7 +18,5 @@
             <option id="fortNelson">Fort Nelson</option>
         </select>
     </div>
-
 </body>
-<script src="/dist/bundle.js"></script>
 </html>
