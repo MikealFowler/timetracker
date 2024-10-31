@@ -7,6 +7,8 @@ var halifax = moment.tz("America/Halifax");
 var fortNelson = moment.tz('America/Fort_Nelson');
 var winnipeg = moment.tz('America/Winnipeg');
 
+const currentTimeElement = document.getElementById('currentTimezone');
+
 //Print off to my console so I know each time zone is working
 console.log("Halifax: " + halifax.format());
 console.log("Toronto: " + toronto.format());
@@ -16,7 +18,7 @@ console.log("Fort Nelson: " + fortNelson.format());
 
 //Starting time
 function updateTime() {
-    const currentTimeElement = document.getElementById('currentTimezone');
+    currentTimeElement = document.getElementById('currentTimezone');
     const now = new Date();
     currentTimeElement.textContent = "Halifax " + now.toLocaleTimeString();
 }
@@ -25,8 +27,8 @@ function updateTime() {
 
 function changeTime() {
     const newTimeElement = document.getElementById('timezoneSelect');
-    const currentTimeElement = document.getElementById('currentTimezone');
-    if (currentTimeElement.textContent = "Halifax " + halifax) {
+     currentTimeElement = document.getElementById('currentTimezone');
+    if (newTimeElement === "Halifax") {
         currentTimeElement.textContent = "Halifax " + halifax;
     } else if (newTimeElement === "Toronto") {
         "Toronto " + toronto;
