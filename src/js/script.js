@@ -20,7 +20,7 @@ async function getUsers() {
     try{
         const response = await axios.get(destination);
         console.log('users fetched:', response.data);
-        document.getElementById("allUsers").innerText = response.data
+        document.getElementById("allUsers").innerText = JSON.stringify(response.data)
     } catch (error) {
         console.error('error fetching users', error.response ? error.response.data : error.message);
     }
