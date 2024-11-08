@@ -19,8 +19,11 @@ function submitUser(){
 async function getUsers() {
     try{
         const response = await axios.get(destination);
+        const users = await response.json();
         console.log('users fetched:', response.data);
-        document.getElementById("allUsers").innerText = JSON.stringify(response.data)
+        users.forEach(users => {
+            document.getElementById("allUsers").innerText = `ID : ${users.id} Username: ${users.username}`;
+        });
     } catch (error) {
         console.error('error fetching users', error.response ? error.response.data : error.message);
     }
