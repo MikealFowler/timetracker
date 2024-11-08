@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../../dist/bundle.js"></script>
+</head>
+<body>
+    <form class="newUserContainer">
+       <input id="userName" type="text" placeholder="Name">
+       <input id="newPassword" type="text" placeholder="password">
+       <button id="submitButton" type="submit" onclick="submitUser()">submit</button>
+    </form>
+   <div>
+    <p class="displayTimeBox" id="allUsers">Default message</p>
+    <button id="showAllButton" onclick="getUsers()">Show Everyone </button>
+   </div>
+</body>
+</html>
