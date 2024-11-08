@@ -4,7 +4,7 @@ let destination = 'http://localhost:4000/'
 
 // Send a POST request
 function submitUser(){
-    let newUser = { "name": document.getElementById("userName").value, "password": document.getElementById("newPassword").value };
+    let newUser = { "username": document.getElementById("userName").value, "password": document.getElementById("newPassword").value };
     axios.post(destination, newUser)
         .then(response => {
             console.log('User created:', response.data);
@@ -18,12 +18,17 @@ function submitUser(){
 //send a get request for all users
 async function getUsers() {
     try{
+        document.getElementById("allUsers").innerHTML = "";
+        const dataCont = document.getElementById("allUsers");
         const response = await axios.get(destination);
-        const users = await response.json();
         console.log('users fetched:', response.data);
-        users.forEach(users => {
-            document.getElementById("allUsers").innerText = `ID : ${users.id} Username: ${users.username}`;
+        response.data.forEach(user => {
+            const element = document.createElement('div');
+            element.textContent = `ID: ${user.id} Name: ${user.username} Password: ${user.password}`;
+            dataCont.appendChild(element);
         });
+        
+        
     } catch (error) {
         console.error('error fetching users', error.response ? error.response.data : error.message);
     }
