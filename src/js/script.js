@@ -12,7 +12,6 @@ function submitUser(){
         .catch(error => {
             console.error('Error creating user:', error);
         });
-
 };
 
 //send a get request for all users
@@ -27,17 +26,24 @@ async function getUsers() {
             element.textContent = `ID: ${user.id} Name: ${user.username} Password: ${user.password}`;
             dataCont.appendChild(element);
         });
-        
-        
     } catch (error) {
         console.error('error fetching users', error.response ? error.response.data : error.message);
-    }
-    
+    }    
+}
+
+async function deleteUsers(id) {
+    const id = document.getElementById("deleteUser").value; // Fetch ID from input
+    try{
+        await axios.delete(`${destination}${id}`);
+        console.log("User has been deleted");
+    } catch (error) {
+        console.error('Error deleting users:', error.response ? error.response.data : error.message)
+    }   
 }
 
 // Attach  to the global window object
-
 window.submitUser = submitUser;
 window.getUsers = getUsers;
+window.deleteUsers = deleteUsers;
 
 
