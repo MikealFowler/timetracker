@@ -31,7 +31,7 @@ async function getUsers() {
     }    
 }
 
-async function deleteUsers(id) {
+async function deleteUsers() {
     const id = document.getElementById("deleteUser").value; // Fetch ID from input
     try{
         await axios.delete(`${destination}${id}`);
