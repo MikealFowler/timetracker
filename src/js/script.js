@@ -41,9 +41,34 @@ async function deleteUsers() {
     }   
 }
 
+async function loginUsers() {
+    // Get the input values
+    const userName = document.getElementById("username").value;
+    const userPassword = document.getElementById("password").value;
+    try {
+        // Send a POST request to your API with the username and password
+        const response = await axios.post(destination, {
+            username: userName,
+            password: userPassword
+        });
+        if (response.data.success) {
+            console.log("it works")
+            window.location.href = '../html/index.html';
+        } else {
+            alert('Invalid username or password.');
+            console.log("did not work")
+        }
+    } catch (error) {
+        console.error('Error during authentication:', error.response ? error.response.data : error.message);
+        alert('An error occurred during authentication.');
+        console.log("Even worse")
+    }
+}
+
 // Attach  to the global window object
 window.submitUser = submitUser;
 window.getUsers = getUsers;
 window.deleteUsers = deleteUsers;
+window.loginUsers = loginUsers;
 
 
