@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Time Tracker - Login</title>
 <link rel="stylesheet" href="../css/style.css">
-<script src="../../dist/bundle.js"></script>
+<script src="../../dist/script1.bundle.js"></script>
 </head>
 <body>
     <div class="login-container">
         <h2>Time Tracker Login</h2>
-        <form id="loginForm">
+        <form id="loginForm" onsubmit="loginUsers()">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
@@ -19,7 +19,7 @@
                 <label for="password">Password:</label>
                 <input type="text" id="password" name="password" required>
             </div>
-            <button type="submit" onclick="loginUsers()">Login</button>
+            <button type="submit">Login</button>
         </form>
     </div>
 </body>

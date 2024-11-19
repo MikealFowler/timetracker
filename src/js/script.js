@@ -45,18 +45,19 @@ async function loginUsers() {
     // Get the input values
     const userName = document.getElementById("username").value;
     const userPassword = document.getElementById("password").value;
+    console.log("Hello");
     try {
+        console.log("FOO");
         // Send a POST request to your API with the username and password
-        const response = await axios.post(destination, {
+        const response = await axios.post(`${destination}login`, {
             username: userName,
             password: userPassword
         });
-        if (response.data.success) {
-            console.log("it works")
-            window.location.href = '../html/index.html';
+        if (response.status == 200) {
+            window.location.assign('http://127.0.0.1:5501/src/html/index.html');
+            alert('Correct Password');
         } else {
             alert('Invalid username or password.');
-            console.log("did not work")
         }
     } catch (error) {
         console.error('Error during authentication:', error.response ? error.response.data : error.message);

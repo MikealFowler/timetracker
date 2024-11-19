@@ -40,4 +40,4 @@ function updateTime() {
 //run update every second
 setInterval(updateTime, 1000);
 
-window.changeTime = changeTime;
+window.updateTime = updateTime;
