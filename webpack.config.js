@@ -1,10 +1,9 @@
-
 const path = require('path');
 
 module.exports = {
   entry: {
-    script1: './src/js/script.js',
-    script2: './src/js/time.js',
+    loginScript: './src/js/loginScript.js',
+    timezoneScript: './src/js/timezoneScript.js',
   },
   output: {
     filename: '[name].bundle.js', // Each entry gets its own output
